@@ -1,0 +1,73 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.BitSet;
+import java.util.Vector;
+import java.util.ArrayList;
+
+public class Main
+{
+    public static void Solution1(int n){
+	    int b = (int) Math.ceil((Math.log(n)/Math.log(2)));
+	    int c = 0;
+	    for(int i=0; i<=b; i++){
+	        System.out.print("b");c=c+b;
+	        for(int j=0; j<i ;j++){
+	          System.out.print(" + b-"+(j+1));c=c+(b-j-1);
+	        }
+	        System.out.println();
+	    }
+	    System.out.println("n: " + n + "   *****   sol1: " + c + "   *****   5*√n:  " + (int) Math.sqrt(25*n));
+    }
+    
+    public static void Solution2(int n){
+        int b = (int) Math.ceil((Math.log(n)/Math.log(2)));	    int c = 0;
+	    for(int i=1; i<b; i++){
+	        System.out.print("b");c=c+b;
+	        for(int j=0; j<i ;j++){
+	          System.out.print(" + b-"+(j+1));c=c+(b-j-1);
+	        }
+	        System.out.println();
+	    }
+	    System.out.println("n: " + n + "   *****   sol2: " + c + "   *****   5*√n:  " + (int) Math.sqrt(25*n));
+    }
+    
+    public static void Solution3(int n){
+        int b = (int) Math.ceil((Math.log(n)/Math.log(2)));
+	    int c = 0;
+	    for(int i=1; i<b; i++){
+	        System.out.print("(b-1)");c=c+b-1;
+	        System.out.print(" + (b-1)");c=c+b-1;
+	        for(int j=1; j<i ;j++){
+	          System.out.print(" + (b-1)-"+j);c=c+(b-1-j);
+	        }
+	        System.out.println();
+	    }
+	    System.out.println("n: " + n + "   *****   sol3: " + c + "   *****   5*√n:  " + (int) Math.sqrt(25*n));
+    }
+    
+    
+	public static void main(String[] args) {
+	    int n = 1073741824;
+	    Solution1(n);
+	    System.out.println("####################################################################################");
+	    Solution2(n);
+	    System.out.println("####################################################################################");
+	    Solution3(n);
+	    int b = (int) Math.ceil((Math.log(n)/Math.log(2)));
+	    System.out.println(b);
+	    float res = 0.0f; //(2b^3 + 3b^2 - 11b +6)/6
+	    res = 2*(b*b*b);
+	    res = res + 3*(b*b);
+	    res = res - 11*b;
+	    res = res + 6;
+	    res = res / 6;
+	    System.out.println("2b^3+3b^2-11b+6)/6 = " +res);
+	}
+}
+
+
